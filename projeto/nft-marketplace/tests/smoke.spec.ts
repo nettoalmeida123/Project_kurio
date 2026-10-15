@@ -1,0 +1,3 @@
+import{test,expect}from '@playwright/test'
+test('catalog loads and opens detail',async({page})=>{await page.goto('/');await expect(page.getByText('Explore Collections')).toBeVisible();await page.getByRole('link',{name:/Golden Genesis #001/}).first().click();await expect(page.getByRole('button',{name:/Add to Cart/})).toBeVisible()})
+test('sign in to demo account',async({page})=>{await page.goto('/login');await page.getByLabel('Email Address').fill('demo@nft.com');await page.getByLabel('Password').fill('demo1234');await page.getByRole('button',{name:'Sign In'}).click();await expect(page.getByText('My Profile')).toBeVisible()})
